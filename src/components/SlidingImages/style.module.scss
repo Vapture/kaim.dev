@@ -1,0 +1,48 @@
+.slidingImages{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 200px;
+    background-color: #dce1e6;
+    z-index: 1;
+    .slider:first-of-type {
+        margin-bottom: 3rem;
+    }
+    .slider{
+        display: flex;
+        position: relative;
+        gap: 3vw;
+        width: 150vw;
+        left: -10vw;
+        .project{
+            width: 25%;
+            height: 25vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            .imageContainer{
+                position: relative;
+                width: 80%;
+                height: 80%;
+                img{
+                    object-fit: cover;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+    .circleContainer{
+        position: relative;
+        margin-top: 100px;
+        .circle{
+            height: 1550%;
+            width: 120%;
+            left: -10%;
+            border-radius: 30px;
+            background-color: #dce1e6;
+            z-index: 1;
+            position: absolute;
+        }
+    }
+}

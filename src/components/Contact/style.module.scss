@@ -1,0 +1,151 @@
+.contact{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00030B;
+    position: relative;
+    z-index: 999999;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    .body{
+        padding-top: 100px;
+        width: 100%;
+        background-color: #00030B;
+        max-width: 1400px;
+        width: 90vw;
+        position: relative;
+
+        .title{
+            position: relative;
+            span{
+                position: relative;
+                .imageContainer{
+                    width: 100px;
+                    height: 100px;
+                    position: relative;
+                    border-radius: 30px;
+                    overflow: hidden;
+
+                    img{
+                        object-fit: cover;
+                        position: relative;
+                    }
+                }
+                h2{
+                    margin-left: 0.3em;
+                }
+            }
+            h2{
+                font-size: 5vw;
+                @media (max-width: 600px) {
+                    font-size: 4vw;
+                }
+                margin: 0px;
+                font-weight: 600;
+            }
+            .buttonContainer{
+                position: absolute;
+                left: calc(100% - 400px); 
+                top: calc(100% - 75px);
+            }
+            button[type="submit"] {
+                width: 30%;
+                text-decoration: none;
+                font-size: 14px;
+                color: white;
+                padding: 25px;
+                font-size: 1.2rem;
+                width: auto;
+                @media (max-width: 600px) {
+                    font-size: 1rem;
+                }
+            }
+            .button{
+                width: 180px;
+                height: 180px;
+                background-color: #f08d00;
+                color: white;
+                border-radius: 30px;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                p{
+                    margin: 0px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    z-index: 2;
+                    position: relative;
+                    @media (max-width: 600px) {
+                        font-size: 13px;
+                    }
+                }
+            }
+            svg{
+                position: absolute;
+                top: 30%;
+                left: 100%;
+            }
+        }
+        .nav{
+            display: flex;
+            position: relative;
+            gap: 20px;
+            margin-top: 100px;
+            margin-left: 200px;
+            margin-right: 200px;
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+        .info{
+            display: flex;
+            position: relative;
+            margin: 100px auto 50px auto;
+            justify-content: space-between;
+            max-width: 1400px;
+            transition: all 0.1s;
+            div{
+                position: relative;
+                display: flex;
+                gap: 10px;
+                align-items: flex-end;
+                p, h3{
+                    margin: 0px;
+                    :hover {
+                        color: #6D62FC;
+                    }
+                }
+                a {
+                    position: relative;
+                    text-decoration: none;
+                    color: white;
+                }
+                span{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                h3{
+                    position: relative;
+                    color: grey;
+                    cursor: default;
+                    font-weight: 600;
+                    font-size: 1em;
+                    @media (max-width: 600px) {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+}

@@ -1,95 +1,77 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useEffect, useState, useRef } from 'react'
+import { AnimatePresence } from 'framer-motion';
+
+import CookieConsentModal from '@/components/Cookies';
+import Preloader from '../components/Preloader';
+
+import Landing from '../components/Landing';
+import Box from '../components/Bento';
+import AnimatedBackground from '../components/Mask';
+import Contact from '../components/Contact';
+import Experience from '../components/Experience';
+
+import { Fluid } from '@whatisjery/react-fluid-distortion';
+import { EffectComposer } from '@react-three/postprocessing';
+import { Canvas } from '@react-three/fiber';
+
 
 export default function Home() {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const messageLoggedRef = useRef(false);
+  useEffect(() => {
+    if (!messageLoggedRef.current) {
+      console.log(
+        '%c kaim.dev ',
+        `font-weight: bold; 
+          font-size: 50px;
+          color: #f4f4f4; 
+          text-shadow: 
+             -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, /* Black outline */
+              3px 3px 0 #6b62f3,
+              6px 6px 0 #544ec2, 
+              9px 9px 0 #3d39b0,
+              12px 12px 0 #26249f,
+              15px 15px 0 #0f0e8d;
+          padding: 10px 20px;   
+          background-color: #f4f4f4;
+          border-radius: 30px;`
+      );
+      messageLoggedRef.current = true;
+    }
+  }, []); 
+
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      const locomotiveScroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        multiplier: 1,
+      });
+  
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.cursor = 'default';
+        window.scrollTo(0, 0);
+      }, 2000);
+    })();
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main data-scroll-container>
+      <AnimatePresence mode='wait'>
+        {isLoading && <Preloader />}
+      </AnimatePresence>
+      <CookieConsentModal/>
+        <Landing />
+        <Box />
+        <AnimatedBackground />
+        <Experience />
+        <Contact />
     </main>
   );
 }

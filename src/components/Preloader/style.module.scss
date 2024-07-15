@@ -1,0 +1,65 @@
+.introduction {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999999999;
+    background-color: #191D25;
+    margin: 0 auto;
+  
+    .hello {
+      display: flex;
+      color: rgb(242, 243, 244);
+      font-size: 7rem;
+      align-items: center;
+      position: absolute;
+      z-index: 999;
+      opacity: 0;
+      animation: fadeInText 0.1s ease-in forwards;
+    }
+  
+    .progress {
+      font-size: 30rem;
+      font-variant-numeric: tabular-nums;
+      z-index: 99;
+      color: rgba(108, 98, 252, 0.25);
+      @media (max-width: 600px) {
+        font-size: 25rem;
+    }
+    }
+  }
+  
+  .introduction svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+  
+    path {
+      fill: #191D25;
+    }
+  }
+  
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .introduction {
+      .hello {
+        font-size: 3rem; /* Adjusted for mobile */
+      }
+  
+      .progress {
+        font-size: 10rem; /* Adjusted for mobile */
+      }
+    }
+  }
+  

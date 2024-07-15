@@ -1,0 +1,42 @@
+import { useTexture } from '@react-three/drei';
+import { EffectComposer } from '@react-three/postprocessing';
+import { Fluid } from '@whatisjery/react-fluid-distortion';
+import { ThreeTunnel } from './tunel';
+
+const Image = () => {
+    const texture = useTexture(img);
+
+    return (
+        <mesh position-z={-4}>
+            <planeGeometry args={[7, 10, 20, 20]} attach='geometry' />
+            <meshBasicMaterial map={texture} color='#d5cfc9' />
+        </mesh>
+    );
+};
+
+const Example3 = () => {
+    return (
+        <ThreeTunnel.In>
+            <EffectComposer>
+                <Fluid
+                    radius={0.03}
+                    curl={10}
+                    swirl={5}
+                    distortion={1}
+                    force={2}
+                    pressure={0.94}
+                    densityDissipation={0.98}
+                    velocityDissipation={0.99}
+                    intensity={0.3}
+                    rainbow={false}
+                    blend={0}
+                    showBackground={true}
+                    backgroundColor='#a7958b'
+                    fluidColor='#cfc0a8'
+                />
+            </EffectComposer>
+        </ThreeTunnel.In>
+    );
+};
+
+export default Example3;

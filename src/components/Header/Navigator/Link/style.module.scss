@@ -1,0 +1,23 @@
+.link{
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    a {
+        color: white;
+        z-index: 999;
+    }
+    
+    .indicator{
+        position: absolute;
+        border-radius: 30px;
+        width: 3%;
+        height: 10%;
+        top: 45%;
+        left: -5%;
+        background-color: #f08d00;
+        transform: scale(0) translateX(-50%);
+        transition: transform 0.1s ease-in;
+        z-index: 99;
+    }
+}

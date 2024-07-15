@@ -1,0 +1,190 @@
+// Keyframes for hover animation
+@keyframes fillBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+// Keyframes for mouse leave animation
+@keyframes emptyBackground {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 90vw;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .contact {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    align-items: center;
+    width: 100%;
+
+    form {
+      width: 100%;
+      box-sizing: border-box; // Added to ensure form width includes padding and border
+
+      .inputs {
+        display: inline-flex;
+        gap: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box; // Added to ensure div width includes padding and border
+      }
+
+      .below {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .row {
+        font-size: 1.2rem;
+        color: white;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        @media (max-width: 600px) {
+          font-size: 1rem;
+      }
+
+        label {
+          font-size: 1.2rem;
+          color: white;
+          margin-bottom: 5px;
+          @media (max-width: 600px) {
+            font-size: 1rem;
+        }
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="phone"],
+        textarea {
+          padding: 30px;
+          font-size: 1.2rem;
+          background-color: #0E0F17;
+          color: white;
+          border: none;
+          border-radius: 30px;
+          height: 2rem;
+          font-family: inherit;
+          transition: 0.3s background-color;
+          box-sizing: border-box;
+          @media (max-width: 600px) {
+            font-size: 1rem;
+        }
+          &:focus {
+            border-color: #6D62FC;
+            background-color: #8e86fc63;
+            outline: none;
+            transition: 0.3s background-color;
+          }
+        }
+
+        textarea {
+          margin-top: 1rem;
+          height: 15rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="phone"] {
+          width: 100%;
+          box-sizing: border-box; // Added to ensure input width includes padding and border
+
+          @media (max-width: 1024px) {
+            width: 100%;
+          }
+        }
+
+        input#name {
+          padding: 1.2rem;
+        }
+
+        &:focus {
+          border-color: #6D62FC;
+          background-color: #8e86fc63;
+          outline: none;
+          transition: 0.3s background-color;
+        }
+      }
+
+      textarea {
+        height: 100px;
+        resize: vertical;
+        width: 100%;
+        box-sizing: border-box; // Added to ensure textarea width includes padding and border
+      }
+
+      .roundedButton,
+      button {
+        @extend .buttonBase;
+      }
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      @media (max-width: 600px) {
+        font-size: 12px;
+    }
+    }
+  }
+}
+
+// Base button styles
+.buttonBase {
+  border-radius: 30px;
+  border: 1px solid #757575;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  background-color: #1A1E26;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
+  position: relative;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  font-family: inherit;
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #141516 50%, #6D62FC 50%);
+  background-position: 0 0;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+}
+
+  &:first-of-type {
+    margin-top: 2.3rem;
+  }
+
+  &:hover {
+    animation: fillBackground 0.3s forwards;
+  }
+
+  &:not(:hover) {
+    animation: emptyBackground 0.3s forwards;
+  }
+}

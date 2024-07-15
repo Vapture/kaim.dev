@@ -1,0 +1,102 @@
+.terminal {
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
+  color: white;
+  font-family: monospace;
+  font-size: 1rem;
+  min-height: 350px;
+  height: 28vh;
+  margin: 50px auto 0 auto;
+  max-width: 1400px;
+  width: 90vw;
+  overflow-y: auto;
+  border-radius: 30px;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+    overflow: hidden;
+  }
+
+
+  &.typing {
+    background: #383665; // The desired background color while typing
+  }
+  
+  .output {
+    padding: 30px;
+  }
+}
+  
+  .input {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    outline: none;
+    width: auto;
+  }
+  
+  .inputLine {
+    display: flex;
+    align-items: center;
+  }
+  
+  .newLine {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .visitor {
+    color: #b8b3fc;
+  }
+  
+  .kaimme {
+    color: #8d86fc;
+  }
+  
+  .command {
+    color: #b8b3fc;
+  }
+  
+  .gradientText {
+    background: linear-gradient(90deg, #6D62FC, #6c62fc8f);
+    -webkit-text-fill-color: transparent;
+  }
+
+  .chessBoard {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    margin: 0 auto;
+    width: 400px; // Adjust the size as needed
+    height: 400px; // Adjust the size as needed
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .square {
+    width: 25px; // Adjust the size as needed
+    height: 25px; // Adjust the size as needed
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem; // Adjust the size as needed
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+  }
+  }
+  
+  .piece {
+    pointer-events: none;
+  }
+  
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
